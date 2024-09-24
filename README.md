@@ -38,18 +38,46 @@ For an in-depth overview of every pipeline element as well as design process, pl
 
 | File                           | Description                                                                                          |
 |---------------------------------|------------------------------------------------------------------------------------------------------|
-| **dataset_generation.py**       | Preprocesses the AWR generated files into a PyTorch dataset, performs the symmetry flip                                   |
-| **cnn_model.py**                | Defines the CNN architecture used for predicting scattering parameters.                              |
-| **genetic_algorithm.py**        | Implements the GA that optimizes RF filter designs.                                                   |
+|**project Report**               | Contains detailed breakdown of the design process, theoretical foundations, use instructions for code.                       |
+|**assets**                       | Folder containing the images used in this repository                                                 |
+| **dataset_importer_2.py**       | This file combines the .csv files, selects frequencies.                                              |
+| **CustomDataset.py**            | Packages the data into a PyTorch dataset structure, and generates more samples with symmetry                              |
+| **cnn_model.py**        |    contains model design. cnn_model_1_conv uses a 1x1 convolution layer to cut down on the parameters in the FC down the line and speed up training time   - recommended model |          
 | **dataset_preprocessing.py**    | Preprocesses the generated dataset for training.                                                      |
-| **train_model.py**              | Trains the CNN using the preprocessed dataset.                                                        |
-| **main.py**                     | Runs the Genetic Algorithm                           |
+| **compare_cnns_2.py**              | Allows one to train multiple CNN networks sequentially, the results of the run are saved into a .json file inside a directory called training_results.json |
+| **seed_generator.py**            | Contains supporting functions for the Genetic Algorithm |
+| **genetic_algorithm_size_adjusted.py** | Contains the bulk of the Genetic Algorithm code.|
+| **main.py**                     | Loads the CNN, runs the Genetic Algorithm, outputs the chosen matrix, its s-parameter prediction.                           |
+| **FR_1_conv_truly_cnn_model_1_conv.pth**| The weights of the best trained model, you can tell by the naming conventions I performed A LOT of runs 😅| 
+| **Worlds of hardware Project Poster**| we presented our work at the Worlds of Hardware 2024 conference. Our poster design. |
 
-This Repo was written by Aylon Feraru and contains his contributions to the project, to get the dataset simulation files contact Eric Green or Dan Fishler. 
+This Repo was written by Aylon Feraru and contains his contributions to the project, to get the raw dataset, and dataset simulation files, contact Dan Fishler. 
+
 ## Results
+- **Accuracy**: Our CNN achieved a Mean Absolute Error (MAE) of 0.38 dB on the prediction of scattering parameters, for a 16x16 design space. With a greater amount of pixels, prediction complexity increases, but with the addition of samples loss decreases significantly - comparison with other projects leads us to believe more samples are required.
+  <p align="center">
+  <img src="assets/loss_.png" alt="The pipeline figure" width="600"/>
+  
+  <strong> Figure 3: training and validation loss curves on the final training run.</strong>
+  </p>
+| **Important to note**: continued improvement with more data | **Our Work** | **Tandem Neural Network Based Design of Multiband Antennas** | **Deep-Learning-Based Inverse-Designed Millimeter-Wave Passives and Power Amplifiers** |
+| :----------------------------------------------------------: | :----------: | :----------------------------------------------------------: | :----------------------------------------------------------------------------------: |
+| **Samples**              | 450,000    | 500,000  | 804,000    |
+| **Size of EM structure**  | 16 x 16    | 12 x 12  | 16 x 16    |
+| **# of ports**            | 2          | 1        | 4 (effectively 2) |
+| **S parameter prediction format** | dB | dB | Re/Im |
+| **Parameters predicted**  | S<sub>11</sub>, S<sub>12</sub>, S<sub>22</sub> | S<sub>11</sub> only | S<sub>11</sub>, S<sub>12</sub>, S<sub>22</sub> |
+| **Structure**             | CNN, with pointwise convolution | Similar CNN, no pointwise convolution | CNN, with 5 FC layers connected after |
+| **Viable for prediction** | Verging on viability | Viable | Viable |
 
-- **Accuracy**: Our CNN achieved a Mean Absolute Error (MAE) of 0.38 dB on the prediction of scattering parameters.
-- **Optimization**: The GA successfully optimized filter designs, approaching the desired RF characteristics.
+<p align="center" style="color: red;"><strong>The prediction problem is SIGNIFICANTLY harder compared to the antenna team, data & compute MUCH smaller compared to both.</strong></p>
+
+- **Optimization**: The GA successfully optimized filter designs, approaching the desired RF characteristics but 
+  <p align="center">
+  <img src="assets/simulated_low_pass.png" alt="The pipeline figure" width="800"/>
+  
+  <strong> Figure 3: A pixel structure approaching desired S-parameter Chaca.</strong>
+  </p>
   
 Performance can be further improved with a larger dataset and extended training.
 
