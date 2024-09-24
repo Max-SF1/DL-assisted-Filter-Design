@@ -1,0 +1,44 @@
+This is the final code for the machine learning based filter design project
+==========================================================================
+For past versions, contact dan fishler
+more detailed running instructions contained in the final project report, for any questions don't hesitate to contact us. 
+ a brief summary here:
+
+>>> To run the Genetic Algorithm - run main.py. 
+----------------------------------------------
+make sure:
+your python version contains all the necessary packages
+your project contains the pth files of the model you're trying to load.  (best current model is cnn_model_1_conv, weights are stored at FR_1conv_truly_cnn_model_1_conv.pth),
+make sure you select the weights correctly
+dataset is 16x16, make sure preprocessed_data.pth which contains it is in your project and chosen
+
+
+main.py
+loads a trained neural net and its weights (you have to specify the weights you want to load - weights are contained in a pth file).
+Contains the main loop for running a genetic algorithm and a function that prints out the relevant designs.
+
+> other files related to the genetic algorithm:
+genetic_algorithm_size_adjusted.py - contains the bulk of the genetic algorithm code needed to run it "under the hood"
+seed_generator.py - contains supporting functions for the genetic algorithm, including the mutation and the random generation of structures. 
+
+>>> To train and inspect CNN models - run compare_CNNs_2.py 
+-----------------------------------------------------------
+
+Allows one to train multiple CNN networks sequentially, the results of the run are saved into a .json file inside a directory called training_results.
+Model weights are saved to a .pth file of the format: f"{run_name}_{model.__class__.__name__}.pth
+
+make sure:
+you have a powerful computer, or a LOT of patience.
+you have the dataset selected and present in the project 
+the models are defined correctly 
+
+> other files related to the genetic algorithm: 
+cnn_model.py: contains model designs - cnn_model_1_conv is the best one. 
+cnn_model_1_conv uses a 1x1 convolution layer to cut down on the parameters in the FC down the line and speed up training time.
+CustomDataset.py - packages the data into a PyTorch dataset structure, and generates more samples with symmetry 
+dataset_importer_2.py - combines the .csv files into a preprocessed dataset, by reading them, changing the formatting from AWR's to PyTorch's.
+In this file the frequency points are also picked. The dataset needs to be reprocessed if you want to shift the chosen frequencies.
+
+
+*to inspect the results of previous trainig runs in graph form type the run name into compare_cnns_2.py and comment out the training loop
+
