@@ -76,7 +76,7 @@ This Repo was written by Aylon Feraru and contains his contributions to the proj
   <p align="center">
   <img src="assets/simulated_low_pass.png" alt="The pipeline figure" width="800"/>
   
-  <strong> Figure 3: A pixel structure approaching desired S-parameter Chaca.</strong>
+  <strong> Figure 3: A pixel structure approaching desired S-parameter Characteristics.</strong>
   </p>
   
 Performance can be further improved with a larger dataset and extended training.
