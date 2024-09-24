@@ -48,7 +48,7 @@ For an in-depth overview of every pipeline element as well as design process, pl
 | **seed_generator.py**            | Contains supporting functions for the Genetic Algorithm |
 | **genetic_algorithm_size_adjusted.py** | Contains the bulk of the Genetic Algorithm code.|
 | **main.py**                     | Loads the CNN, runs the Genetic Algorithm, outputs the chosen matrix, its s-parameter prediction.                           |
-| **FR_1_conv_truly_cnn_model_1_conv.pth**| The weights of the best trained model, you can tell by the naming conventions I performed A LOT of runs 😅| 
+| **Weights.rar**| The weights of the best trained model - file is named FR_1_conv_truly_cnn_model_1_conv, you can tell by the naming conventions I performed A LOT of runs 😅| 
 | **Worlds of hardware Project Poster**| we presented our work at the Worlds of Hardware 2024 conference. Our poster design. |
 
 This Repo was written by Aylon Feraru and contains his contributions to the project, to get the raw dataset, and dataset simulation files, contact Dan Fishler. 
