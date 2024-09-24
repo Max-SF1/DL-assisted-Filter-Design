@@ -39,6 +39,7 @@ For an in-depth overview of every pipeline element as well as design process, pl
 | File                           | Description                                                                                          |
 |---------------------------------|------------------------------------------------------------------------------------------------------|
 |**project Report**               | Contains detailed breakdown of the design process, theoretical foundations, use instructions for code.                       |
+| **Worlds of hardware Project Poster**| we presented our work at the Worlds of Hardware 2024 conference. Our poster design. |
 |**assets**                       | Folder containing the images used in this repository                                                 |
 | **dataset_importer_2.py**       | This file combines the .csv files, selects frequencies.                                              |
 | **CustomDataset.py**            | Packages the data into a PyTorch dataset structure, and generates more samples with symmetry                              |
@@ -49,7 +50,7 @@ For an in-depth overview of every pipeline element as well as design process, pl
 | **genetic_algorithm_size_adjusted.py** | Contains the bulk of the Genetic Algorithm code.|
 | **main.py**                     | Loads the CNN, runs the Genetic Algorithm, outputs the chosen matrix, its s-parameter prediction.                           |
 | **Weights.rar**| The weights of the best trained model - file is named FR_1_conv_truly_cnn_model_1_conv, you can tell by the naming conventions I performed A LOT of runs 😅| 
-| **Worlds of hardware Project Poster**| we presented our work at the Worlds of Hardware 2024 conference. Our poster design. |
+
 
 This Repo was written by Aylon Feraru and contains his contributions to the project, to get the raw dataset, and dataset simulation files, contact Dan Fishler. 
 
