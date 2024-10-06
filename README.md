@@ -52,7 +52,7 @@ For an in-depth overview of every pipeline element as well as design process, pl
 | **Weights.rar**| The weights of the best trained model - file is named FR_1_conv_truly_cnn_model_1_conv, you can tell by the naming conventions I performed A LOT of runs 😅| 
 
 
-This Repo was written by Aylon Feraru and contains his contributions to the project, to get the raw dataset, and dataset simulation files, contact Dan Fishler. 
+This Repo does not contain the dataset files.
 
 ## Results
 - **Accuracy**: Our CNN achieved a Mean Absolute Error (MAE) of 0.38 dB on the prediction of scattering parameters, for a 16x16 design space. With a greater amount of pixels, prediction complexity increases, but with the addition of samples loss decreases significantly - comparison with other projects leads us to believe more samples are required.
